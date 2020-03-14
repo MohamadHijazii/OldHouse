@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OldHouse.Models.Record>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Records</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient.DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodPressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeartRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlucoseLevel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodPressure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeartRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GlucoseLevel)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-eye"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
